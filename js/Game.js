@@ -9,7 +9,19 @@ class Game {
     }
 
     startGame() {
+
         document.getElementById('overlay').style.visibility = 'hidden';
+        document.querySelector('#phrase ul').innerHTML = '';
+        document.querySelectorAll('.key').forEach((key) => {
+            key.className = 'key';
+        });
+
+        document.querySelectorAll("img[src='images/lostHeart.png']").forEach((img) => {
+            img.src = 'images/liveHeart.png';
+        });
+
+        this.missed = 0;
+
         this.activePhrase = new Phrase(this.getRandomPhrase());
         this.activePhrase.addPhraseToDisplay();
     }
@@ -21,24 +33,39 @@ class Game {
     handleInteraction(event) {
         event.target.disabled = true;
         if (this.activePhrase.checkLetter(event.target.innerText)) {
-            event.target.classList = "chosen";
+            event.target.classList = "chosen key";
             this.activePhrase.showMatchedLetter(event.target.innerText);
             this.checkForWin();
         } else {
-            event.target.classList = "wrong";
+            event.target.classList = "wrong key";
             this.removeLife();
         }
     }
 
     removeLife() {
-
+        this.missed += 1;
+        if (document.querySelector("img[src='images/liveHeart.png']")) {
+            document.querySelector("img[src='images/liveHeart.png']").src = "images/lostHeart.png";
+        }
+ 
+        if (this.missed >= 5) {
+            this.gameOver('Game Over, you ran out of lives!', 'lose');
+        }
     }
 
     checkForWin() {
+        const lettersLI = document.querySelectorAll('#phrase li');
+        const foundLetters= document.querySelectorAll('.show');
+        const spaces = document.querySelectorAll('.space');
 
+        if (foundLetters.length + spaces.length ===  lettersLI.length) {
+            this.gameOver('Congratulations, you won!', 'win');
+        }
     }
 
-    gameOver() {
-
+    gameOver(message, winOrLose) {
+        document.getElementById('overlay').style.visibility = 'visible';
+        document.getElementById('game-over-message').innerText = message;
+        document.getElementById('overlay').className = winOrLose;
     }
 }
