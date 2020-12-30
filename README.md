@@ -2,7 +2,7 @@
 ### by Mathieu Desilets
 
 ## A simple phrase hunter game.
-Player must try to find the hidden phrase by guessing letters using his keyboard or his mouse with the visual keyboard.
+Player must try to find the hidden phrase by guessing letters using his keyboard or his mouse with the visual keyboard. Game ends when the player has found every letters or when he runs out of lives(5).
 
 
 ### Techno used

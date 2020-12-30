@@ -64,7 +64,7 @@ class Game {
             });
         // If click is passed, it disables the key on the visual keyboard and apply the right class to the element.
         // If the clicked key match a letter in the activePhrase, checkForWin() is called and the letter is revealed and if not, removeLife() is called.
-        } else if (event.type === 'click' && this.activePhrase) {
+        } else if (event.type === 'click') {
             event.target.disabled = true;
             if (this.activePhrase.checkLetter(event.target.innerText)) {
                 event.target.classList = "chosen key";
