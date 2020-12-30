@@ -14,7 +14,15 @@ class Game {
 
     // Method used to start a new game and reset the game components to their original state.
     startGame() {
-        document.getElementById('overlay').style.visibility = 'hidden';
+        // Extra Credit
+        // Show the Dark mode slider on new game.
+        document.querySelector('.theme-switch-wrapper').style.display = 'flex';
+
+        // Add a fadeout on the overlay and reset game components
+        document.getElementById('overlay').classList.add('startFadeout');
+        setTimeout(() => {
+            document.getElementById('overlay').style.visibility = 'hidden'; 
+        }, 1000)
         document.querySelector('#phrase ul').innerHTML = '';
         document.querySelectorAll('.key').forEach((key) => {
             key.className = 'key';
@@ -56,7 +64,7 @@ class Game {
             });
         // If click is passed, it disables the key on the visual keyboard and apply the right class to the element.
         // If the clicked key match a letter in the activePhrase, checkForWin() is called and the letter is revealed and if not, removeLife() is called.
-        } else if (event.type === 'click') {
+        } else if (event.type === 'click' && this.activePhrase) {
             event.target.disabled = true;
             if (this.activePhrase.checkLetter(event.target.innerText)) {
                 event.target.classList = "chosen key";
@@ -98,8 +106,10 @@ class Game {
     // Used to end game when the player either wins or loses and show the overlay with a custom message
     // and color by applying the right class depending on the result of the game.
     gameOver(message, winOrLose) {
+        document.querySelector('.theme-switch-wrapper').style.display = 'none';
         document.getElementById('overlay').style.visibility = 'visible';
         document.getElementById('game-over-message').innerText = message;
         document.getElementById('overlay').className = winOrLose;
+        document.querySelector('#btn__reset span').textContent = 'Start a new Game';
     }
 }
