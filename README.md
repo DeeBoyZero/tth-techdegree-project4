@@ -7,7 +7,7 @@ Player must try to find the hidden phrase by guessing letters using his keyboard
 
 ### Techno used
 - HTML
-- CSS
+- CSS (variables and animations)
 - Javascript
  
 
