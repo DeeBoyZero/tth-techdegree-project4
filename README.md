@@ -13,7 +13,8 @@ Player must try to find the hidden phrase by guessing letters using his keyboard
 
 ### Extra credit informations
 
-- Added some CSS animation on the start game button.
+- Added some CSS animation on the start game button. All credits goes to:
+  https://codepen.io/natalia-reshetnikova/pen/oRRjPP  
 
 - Added fadeout effect on the Start Overlay.
 
