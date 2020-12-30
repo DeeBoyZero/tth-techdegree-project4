@@ -1,8 +1,8 @@
-# Team Treehouse FSJS unit 3 project
+# Team Treehouse FSJS unit 4 project
 ### by Mathieu Desilets
 
 ## A simple phrase hunter game.
-Player must try to find the hidden phrase by guessing letters using his keobaord or mouse.
+Player must try to find the hidden phrase by guessing letters using his keyboard or his mouse with the visual keyboard.
 
 
 ### Techno used
