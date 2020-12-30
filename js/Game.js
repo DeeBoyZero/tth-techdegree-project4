@@ -14,6 +14,7 @@ class Game {
         document.querySelector('#phrase ul').innerHTML = '';
         document.querySelectorAll('.key').forEach((key) => {
             key.className = 'key';
+            key.disabled = false;
         });
 
         document.querySelectorAll("img[src='images/lostHeart.png']").forEach((img) => {
@@ -31,15 +32,32 @@ class Game {
     }
 
     handleInteraction(event) {
-        event.target.disabled = true;
-        if (this.activePhrase.checkLetter(event.target.innerText)) {
-            event.target.classList = "chosen key";
-            this.activePhrase.showMatchedLetter(event.target.innerText);
-            this.checkForWin();
-        } else {
-            event.target.classList = "wrong key";
-            this.removeLife();
+        if (event.type === 'keyup') {
+            document.querySelectorAll('.key').forEach((key) => {
+                if (event.key === key.textContent) {
+                    key.disabled = true;
+                    if (this.activePhrase.checkLetter(event.key)) {
+                        key.classList = "chosen key";
+                        this.activePhrase.showMatchedLetter(event.key);
+                        this.checkForWin();
+                    } else {
+                        key.classList = "wrong key";
+                        this.removeLife();
+                    }
+                }
+            });
+        } else if (event.type === 'click') {
+            event.target.disabled = true;
+            if (this.activePhrase.checkLetter(event.target.innerText)) {
+                event.target.classList = "chosen key";
+                this.activePhrase.showMatchedLetter(event.target.innerText);
+                this.checkForWin();
+            } else {
+                event.target.classList = "wrong key";
+                this.removeLife();
+            }
         }
+
     }
 
     removeLife() {

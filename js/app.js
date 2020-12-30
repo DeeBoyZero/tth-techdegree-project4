@@ -12,3 +12,9 @@ document.getElementById('qwerty').addEventListener('click', (e) => {
         game.handleInteraction(e);
     }
 });
+
+document.addEventListener('keyup', (e) => {
+    if (e.keyCode > 64 && e.keyCode < 91) {
+        game.handleInteraction(e);
+    }
+});
