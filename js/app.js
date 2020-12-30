@@ -26,8 +26,8 @@ document.addEventListener('keyup', (e) => {
     }
 });  
 
-
-
+// Extra credit
+// Add a listener on the dark mode slider to switch between light and dark mode.
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 
 function switchTheme(e) {

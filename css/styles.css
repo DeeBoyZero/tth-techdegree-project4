@@ -19,6 +19,7 @@
 
 }
 
+/* Dark theme color settings(Extra credit) */
 [data-theme="dark"] {
   --bg-color: #161625;
   --title-color:#D2D2D2;
@@ -71,7 +72,7 @@ button {
 
 /* 
 ========================
-Start Button animations
+Start Button animations (Extra credit)
 Author: Natalia Reshetnikova
 Url: https://codepen.io/natalia-reshetnikova/pen/oRRjPP
 ========================
@@ -254,7 +255,7 @@ Url: https://codepen.io/natalia-reshetnikova/pen/oRRjPP
   color: #fff;
 }
 
-/* Start game overlay animation */
+/* Start game overlay animation (Extra credit)*/
 
 .startFadeout {
   animation: fadeOut 1s linear forwards;
@@ -282,10 +283,9 @@ Url: https://codepen.io/natalia-reshetnikova/pen/oRRjPP
   color: var(--color-lose);
 }
 
-/* Dark mode toggle switch styling */
+/* Dark mode toggle switch styling (Extra credit) */
 /* Code from https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8 */
 
-/*Simple css to style it like a toggle switch*/
 .theme-switch-wrapper {
   display: none;
   align-items: center;
