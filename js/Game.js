@@ -37,11 +37,12 @@ class Game {
 
     // Game logic is handled by using the event delegation from listener in app.js. If accepts both keyup and click events.
     handleInteraction(event) {
-        // If keyup is passed, it disables the corresponding key on the visual keyboard and apply the right class to the element.
+        // Extra credit 
+        // If keyup is passed and game has started, it disables the corresponding key on the visual keyboard and apply the right class to the element.
         // If the key match a letter in the activePhrase, checkForWin() is called and the letter is revealed and if not, removeLife() is called.
-        if (event.type === 'keyup') {
+        if (event.type === 'keyup' && this.activePhrase) {
             document.querySelectorAll('.key').forEach((key) => {
-                if (event.key === key.textContent) {
+                if (event.key === key.textContent && !key.disabled) {
                     key.disabled = true;
                     if (this.activePhrase.checkLetter(event.key)) {
                         key.classList = "chosen key";
