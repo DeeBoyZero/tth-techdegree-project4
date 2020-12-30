@@ -2,6 +2,8 @@
 ### by Mathieu Desilets
 
 ## A simple phrase hunter game.
+Player must try to find the hidden phrase by guessing letters using his keobaord or mouse.
+
 
 ### Techno used
 - HTML
